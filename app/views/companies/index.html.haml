@@ -1,0 +1,18 @@
+%h2 Company Listing
+%table.table.table-hover
+  %tr
+    %th Company Name
+    %th
+    %th
+    %th
+  - @companies.each do |company|
+    %tr
+      %td #{company.company_name}
+      %td 
+        =link_to "Show", company
+      %td
+        =link_to "Edit", edit_company_path(company)
+      %td
+        =link_to "Remove", company, method: :delete
+
+= link_to "Add new company", new_company_path
