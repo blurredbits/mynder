@@ -17,5 +17,13 @@ gem 'seedbank'
 
 group :development, :test do  
   gem 'rspec-rails','~> 3.0.0'
+  gem 'debugger'
 end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+end
+
+gem 'devise'
 

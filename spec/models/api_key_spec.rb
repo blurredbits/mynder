@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe APIKey, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  it "generates an access_token upon create" do
+    api_key = APIKey.create!
+    expect(api_key.access_token).not_to be_nil 
+  end
+  
 end

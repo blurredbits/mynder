@@ -1,9 +1,12 @@
+require 'api_constraints'
+
 Rails.application.routes.draw do
 
+  devise_for :users
   #namespace :api, path: "", constraints: { subdomain: "api" }, defaults: { format: :json } do
 
-  namespace :api, path: "", defaults: { format: :json } do
-    namespace :v1 do
+  namespace :api, path: "", defaults: { format: :json }, constraints: { subdomain: 'api'}, path: '/' do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
       resources :locations
     end
   end
